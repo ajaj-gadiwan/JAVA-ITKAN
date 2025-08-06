@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+public class SimpleCalculator {
+    public static void main(String[] args) {
+        // Create Scanner object for user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt user for the first number
+        System.out.print("Enter the first number: ");
+        double num1 = scanner.nextDouble();
+
+        // Prompt user for the second number
+        System.out.print("Enter the second number: ");
+        double num2 = scanner.nextDouble();
+
+        // Consume the leftover newline
+        scanner.nextLine();
+
+        // Prompt user for the operator
+        System.out.print("Enter an operator (+, -, *, /): ");
+        String operator = scanner.nextLine();
+
+        // Boolean to check if the operator is valid
+        boolean isValidOperator = operator.equals("+") || operator.equals("-") ||
+                                  operator.equals("*") || operator.equals("/");
+
+        if (isValidOperator) {
+            double result = 0;
+
+            // Perform the operation
+            if (operator.equals("+")) {
+                result = num1 + num2;
+            } else if (operator.equals("-")) {
+                result = num1 - num2;
+            } else if (operator.equals("*")) {
+                result = num1 * num2;
+            } else if (operator.equals("/")) {
+                // Check for division by zero
+                if (num2 != 0) {
+                    result = num1 / num2;
+                } else {
+                    System.out.println("Error: Division by zero is not allowed.");
+                    scanner.close();
+                    return;
+                }
+            }
+
+            // Display the result
+            System.out.println("Result: " + num1 + " " + operator + " " + num2 + " = " + result);
+        } else {
+            System.out.println("Invalid operator. Please use +, -, *, or /.");
+        }
+
+        scanner.close();
+    }
