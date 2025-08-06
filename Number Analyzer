@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class NumberAnalyzer {
+
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+
+        // Declare variables for sum, even count, and odd count
+        int sum = 0;
+        int evenCount = 0;
+        int oddCount = 0;
+
+        // Ask the user how many numbers they want to analyze
+        System.out.print("How many numbers do you want to analyze? ");
+        int count = keyboard.nextInt();
+
+        // Bonus: Input validation to ensure count is positive
+        while (count <= 0) {
+            System.out.println("Please enter a positive number greater than 0.");
+            System.out.print("How many numbers do you want to analyze? ");
+            count = keyboard.nextInt();
+        }
+
+        // Loop to read 'count' numbers from the user
+        for (int i = 1; i <= count; i++) {
+            System.out.print("Enter number #" + i + ": ");
+            int currentNumber = keyboard.nextInt();
+
+            // Add to the total sum
+            sum += currentNumber;
+
+            // Check if the number is even or odd
+            if (currentNumber % 2 == 0) {
+                evenCount++;
+            } else {
+                oddCount++;
+            }
+        }
+
+        // Print the final report
+        System.out.println("\n----- Number Analysis Report -----");
+        System.out.println("Total Sum: " + sum);
+        System.out.println("Even Numbers: " + evenCount);
+        System.out.println("Odd Numbers: " + oddCount);
+
+        keyboard.close();
+    }
+}
