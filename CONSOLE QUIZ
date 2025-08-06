@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+public class SimpleQuizGame {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Track score
+        int score = 0;
+
+        // Question 1
+        String question1 = "what is 2+2?";
+        String option1A = "A) 4";
+        String option1B = "B) 20";
+        String option1C = "C) 30";
+        String correctAnswer1 = "A";
+
+        System.out.println("Question 1:");
+        System.out.println(question1);
+        System.out.println(option1A);
+        System.out.println(option1B);
+        System.out.println(option1C);
+        System.out.print("Your answer: ");
+        String answer1 = scanner.nextLine();
+
+        // Boolean to track correctness
+        boolean isCorrect1 = answer1.equalsIgnoreCase(correctAnswer1);
+
+        if (isCorrect1) {
+            System.out.println("Correct!");
+            score++;
+        } else {
+            System.out.println("Incorrect. The correct answer was A) Paris.");
+        }
+
+        System.out.println();
+
+        // Question 2
+        String question2 = "Which number is a prime number?";
+        String option2A = "A) 4";
+        String option2B = "B) 9";
+        String option2C = "C) 7";
+        String correctAnswer2 = "C";
+
+        System.out.println("Question 2:");
+        System.out.println(question2);
+        System.out.println(option2A);
+        System.out.println(option2B);
+        System.out.println(option2C);
+        System.out.print("Your answer: ");
+        String answer2 = scanner.nextLine();
+
+        boolean isCorrect2 = answer2.equalsIgnoreCase(correctAnswer2);
+
+        if (isCorrect2) {
+            System.out.println("Correct!");
+            score++;
+        } else {
+            System.out.println("Incorrect. The correct answer was C) 7.");
+        }
+
+        System.out.println();
+
+        // Final score output
+        System.out.println("Quiz complete!");
+        System.out.println("You scored " + score + " out of 2.");
+
+        // Close scanner
+        scanner.close();
+    }
+}
